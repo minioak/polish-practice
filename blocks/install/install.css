@@ -1,0 +1,23 @@
+.install {
+  border-radius: 20px;
+  padding: 20px 24px;
+  background-color: var(--light-color);
+}
+
+.install .install-content > :first-child {
+  margin-top: 0;
+}
+
+.install .install-content h2,
+.install .install-content h3 {
+  font-size: var(--heading-font-size-s);
+}
+
+.install .install-content p,
+.install .install-content li {
+  font-size: var(--body-font-size-s);
+}
+
+.install .install-actions {
+  margin: 16px 0 0;
+}

@@ -37,6 +37,25 @@ if (window.trustedTypes && window.trustedTypes.createPolicy) {
   });
 }
 
+// keep the browser's install prompt so the install block can offer it later
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  window.installPrompt = e;
+  window.dispatchEvent(new Event('installpromptready'));
+});
+
+/**
+ * Registers the service worker that makes the site work offline.
+ */
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+  navigator.serviceWorker.register(`${window.hlx.codeBasePath}/sw.js`, { scope: '/' })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.warn('Service worker registration failed', error);
+    });
+}
+
 /**
  * load fonts.css and set a session storage flag
  */
@@ -205,6 +224,7 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   import('./consent-check.js');
+  registerServiceWorker();
   // load anything that can be postponed to the latest here
 }
 

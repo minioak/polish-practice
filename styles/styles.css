@@ -11,13 +11,18 @@
  */
 
 :root {
+  color-scheme: light dark;
+
   /* colors */
   --background-color: white;
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --link-color: #c8102e;
+  --link-hover-color: #9e0c24;
+  --accent-color: #dc143c;
+  --card-color: #fff;
+  --card-border-color: #ececec;
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -38,6 +43,20 @@
 
   /* nav height */
   --nav-height: 64px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121214;
+    --light-color: #24242a;
+    --dark-color: #b8b8c0;
+    --text-color: #f2f2f5;
+    --link-color: #ff6b81;
+    --link-hover-color: #ff97a6;
+    --accent-color: #ff4d6a;
+    --card-color: #1c1c21;
+    --card-border-color: #2e2e36;
+  }
 }
 
 /* fallback fonts */
@@ -322,4 +341,21 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* deck pages: keep the card above the fold on phones */
+main .section.flashcards-container h1 {
+  margin-top: 0.4em;
+  font-size: var(--heading-font-size-l);
+}
+
+main .section.flashcards-container .default-content-wrapper p {
+  margin-top: 0.4em;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.45;
+}
+
+main .section.flashcards-container .flashcards-wrapper {
+  margin-top: 16px;
 }

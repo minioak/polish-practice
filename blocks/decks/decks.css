@@ -1,0 +1,77 @@
+.decks .decks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.decks .decks-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--card-border-color);
+  border-left: 6px solid var(--accent-color);
+  border-radius: 16px;
+  padding: 16px 20px;
+  background-color: var(--card-color);
+  color: var(--text-color);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 6%);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.decks .decks-card:hover,
+.decks .decks-card:focus-visible {
+  color: var(--text-color);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 10%);
+}
+
+.decks .decks-card h3 {
+  margin: 0;
+  font-size: var(--heading-font-size-s);
+}
+
+.decks .decks-description {
+  flex: 1;
+  margin: 4px 0 0;
+  color: var(--dark-color);
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+}
+
+.decks .decks-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.decks .decks-bar {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background-color: var(--light-color);
+  overflow: hidden;
+}
+
+.decks .decks-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background-color: var(--accent-color);
+}
+
+.decks .is-complete .decks-bar span {
+  background-color: #1b7f3b;
+}
+
+.decks .decks-label {
+  color: var(--dark-color);
+  font-size: var(--body-font-size-xs);
+  white-space: nowrap;
+}
